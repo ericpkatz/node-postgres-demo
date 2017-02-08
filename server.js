@@ -14,6 +14,15 @@ app.get('/', (req, res, next) => {
   });
 });
 
+app.get('/:id', (req, res, next)=> {
+  db.getProduct(req.params.id*1, (err, product)=> {
+    if(err){
+      return next(err);
+    }
+    res.send(product);
+  });
+});
+
 app.use((error, req, res, next)=> {
   res.send(error.message);
 });
