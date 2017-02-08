@@ -36,7 +36,7 @@ const connect = ()=> {
 };
 
 const getProducts = (cb)=> {
-  client.query('select * from xproducts', (err, result)=> {
+  client.query('select * from products', (err, result)=> {
     if(err){
       return cb(err);
     }
