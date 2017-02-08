@@ -14,6 +14,10 @@ app.get('/', (req, res, next) => {
   });
 });
 
+app.use((error, req, res, next)=> {
+  res.send(error.message);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, ()=> console.log(`listening on port ${port}`));
 
